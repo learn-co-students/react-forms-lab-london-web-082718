@@ -21,8 +21,7 @@ class LoginForm extends React.Component {
     let username = this.state.username
     let password = this.state.password
     if (!!username && !!password) {
-      console.log(username, password)
-      this.props.onSubmit(username, password)
+      this.props.onSubmit(this.state)
     } 
   }
 
