@@ -3,23 +3,40 @@ import React from "react";
 class LoginForm extends React.Component {
   constructor() {
     super();
-
-    this.state = {};
+    this.state = {
+      username: '',
+      password: ''
+    };
   }
+
+  handleInputChange = (event) => {
+  this.setState({
+    [event.target.name]: event.target.value
+  })
+}
+
+formComplete = (event) => {
+  event.preventDefault()
+  if(this.state.username && this.state.password) {
+    this.props.onSubmit(this.state)
+  }else{
+    console.log('Error! Please fill out both fields')
+  }
+}
 
   render() {
     return (
-      <form>
+      <form onSubmit={event => this.formComplete(event)}>
         <div>
           <label>
             Username
-            <input id="username" name="username" type="text" />
+            <input id="username" name="username" type="text" value={this.state.username} onChange={event => this.handleInputChange(event)}/>
           </label>
         </div>
         <div>
           <label>
             Password
-            <input id="password" name="password" type="password" />
+            <input id="password" name="password" type="password" value={this.state.password} onChange={event => this.handleInputChange(event)}/>
           </label>
         </div>
         <div>
