@@ -2,8 +2,8 @@ import React from "react";
 
 class TwitterMessage extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
        message: ''
@@ -17,7 +17,7 @@ class TwitterMessage extends React.Component {
       })
     }
 
-  // 
+  //
   // handleSubmit = (event) => {
   //   console.log('Tweet submitted:' + this.state.message)
   // }
